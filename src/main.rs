@@ -1,5 +1,6 @@
 use std::io;
 use std::process;
+use std::time::Instant;
 
 fn main() {
     println!("Prime number checker.");
@@ -25,17 +26,22 @@ fn main() {
 
     let mut divisor: u128 = 3;
 
+    // Start tracking how long it took to run the program
+    let start = Instant::now();
+
     // Loop over all numbers less than half the number the user picked
     loop {
         // If the remainder is zero, then it's not prime
         if number % divisor == 0 {
-            println!("Not prime! It is divisible by {divisor}");
+            let duration = start.elapsed();
+            println!("Not prime! It is divisible by {divisor}. It took {duration:?} to finish.");
             break;
         }
         else {
             // Check if number is more than half of the number the user picked
             if divisor >= number / 2 {
-                println!("{number} is prime!");
+                let duration = start.elapsed();
+                println!("{number} is prime! It took {duration:?} to finish.");
                 break;
             }
             else {
