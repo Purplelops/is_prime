@@ -34,14 +34,14 @@ fn main() {
         // If the remainder is zero, then it's not prime
         if number % divisor == 0 {
             let duration = start.elapsed();
-            println!("Not prime! It is divisible by {divisor}. It took {duration:?} to finish.");
+            println!("Not prime! It is divisible by {divisor}. It took {duration:?} to check.");
             break;
         }
         else {
             // Check if number is more than half of the number the user picked
             if divisor >= number / 2 {
                 let duration = start.elapsed();
-                println!("{number} is prime! It took {duration:?} to finish.");
+                println!("{number} is prime! It took {duration:?} to check.");
                 break;
             }
             else {
